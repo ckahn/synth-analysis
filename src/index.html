@@ -3,6 +3,10 @@
     <script src="./bundle.js"></script>
   </head>
   <body ng-app="synthAnalysis">
-    <app></app>
+  	<div ng-controller="Controller">
+    	<oscillator wave="synthesizedWave.carrierWave"></oscillator>
+      <oscillator wave="synthesizedWave.modulatorWave"></oscillator>
+      <oscillator wave="synthesizedWave" omit-frequency="true"></oscillator>
+	 </div>
   </body>
 </html>

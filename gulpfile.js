@@ -12,7 +12,7 @@ var babelify   = require('babelify'),
 
 var config = {
   js: {
-    src: './src/app/index.js',
+    src: './src/js/index.js',
     outputDir: './build/',
     mapDir: './maps/',
     outputFile: 'bundle.js'
@@ -54,7 +54,7 @@ gulp.task('js', function () {
 
 gulp.task('watch', function () {
   livereload.listen();
-  gulp.watch(['src/app/**/*js', 'src/app/directives/*/*html'], ['js']);
+  gulp.watch(['src/js/**/*js', 'src/js/directives/*/*html'], ['js']);
   gulp.watch('src/index.html', ['html']);
 });
 
