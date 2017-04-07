@@ -4,9 +4,14 @@
   </head>
   <body ng-app="synthAnalysis">
   	<div ng-controller="Controller">
-    	<oscillator wave="synthesizedWave.carrierWave"></oscillator>
-      <oscillator wave="synthesizedWave.modulatorWave"></oscillator>
-      <oscillator wave="synthesizedWave" omit-frequency="true"></oscillator>
+    	<sound-generator wave="synthesizer.carrierWave">
+      </sound-generator>
+
+      <sound-generator wave="synthesizer.modulatorWave">
+      </sound-generator>
+
+      <sound-generator wave="synthesizer.outputWave" omit-frequency="true">
+      </sound-generator>
 	 </div>
   </body>
 </html>
