@@ -3,7 +3,10 @@ import template from './template.html';
 export default () => ({
   restrict: 'E',
   scope: {
-    parameter: '='
+    parameter: '=',
+    min: '=',
+    max: '=',
+    step: '='
   },
   template
 })

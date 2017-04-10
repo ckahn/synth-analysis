@@ -3,15 +3,26 @@
     <script src="./bundle.js"></script>
   </head>
   <body ng-app="synthAnalysis">
-  	<div ng-controller="Controller">
-    	<sound-generator wave="synthesizer.carrierWave">
+    <div ng-controller="Controller">
+      <sound-generator 
+        wave="synthesizer.carrierWave" 
+        default-freq="220"
+        freq-range="[110, 440]"
+        default-amp="1"
+        amp-range="[0, 1]">
       </sound-generator>
 
-      <sound-generator wave="synthesizer.modulatorWave">
+      <sound-generator 
+        wave="synthesizer.modulatorWave" 
+        default-freq="3"
+        freq-range="[0, 440]"
+        default-amp="10"
+        amp-range="[0, 50]">
       </sound-generator>
 
-      <sound-generator wave="synthesizer.outputWave" omit-frequency="true">
-      </sound-generator>
-	 </div>
+      <div>
+        <pre>{{synthesizer.outputWave}}</pre>
+      </div>
+   </div>
   </body>
 </html>

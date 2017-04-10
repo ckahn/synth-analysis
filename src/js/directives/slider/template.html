@@ -1,3 +1,8 @@
 <div class="slider">
-  <input type="range" min="0" max="300" ng-model="parameter.value">
+  <input 
+    type="range" 
+    min="{{min}}" 
+    max="{{max}}" 
+    step="{{step}}" 
+    ng-model="parameter.value">
 </div>

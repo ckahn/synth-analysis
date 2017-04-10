@@ -1,5 +1,16 @@
 <graph wave="wave"></graph>
-<slider parameter="wave.amplitude"></slider>
-<div ng-if="!omitFrequency">
-  <slider parameter="wave.frequency"></slider>
+<slider 
+  parameter="wave.amplitude" 
+  min="ampRange[0]" 
+  max="ampRange[1]" 
+  step="0.05">
+</slider>
+
+<div ng-if="freqRange">
+  <slider 
+    parameter="wave.frequency" 
+    min="freqRange[0]" 
+    max="freqRange[1]" 
+    step="1">
+  </slider>
 </div>
