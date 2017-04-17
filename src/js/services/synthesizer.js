@@ -5,14 +5,16 @@ export default function () {
   this.oscCarrier = audioCtx.createOscillator();
   this.oscCarrier.type = 'sine';
 
-  // [carrier] => [gain]
+  // [carrier] => [gain] => [analyzer]
   this.carrierGain = audioCtx.createGain();
-  this.oscCarrier.connect(this.carrierGain);
+  this.carrierAnalyzer = audioCtx.createAnalyser();
+  this.oscCarrier
+  .connect(this.carrierGain)
+  .connect(this.carrierAnalyzer);
 
   // create modulator
   this.oscModulator = audioCtx.createOscillator();
   this.oscModulator.type = 'sine';
-  window.mod = this.oscModulator;
 
   // [modulator] => [gain] => [analyzer] => [carrier frequency]
   this.modulatorGain = audioCtx.createGain();
@@ -29,21 +31,18 @@ export default function () {
   // start em up
   this.oscCarrier.start();
   this.oscModulator.start();
-
-
-  window.az = this.modulatorAnalyzer;
   
   return {
     carrierWave: {
       amplitude: this.carrierGain.gain,
       frequency: this.oscCarrier.frequency,
-      analyzer: {}
+      analyzer: null
     },
     modulatorWave: {
       amplitude: this.modulatorGain.gain,
       frequency: this.oscModulator.frequency,
       analyzer: this.modulatorAnalyzer
     },
-    outputWave: {}
+    outputAnalyzer: this.carrierAnalyzer
   };
 }

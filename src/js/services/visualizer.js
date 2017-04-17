@@ -1,6 +1,6 @@
 
 export default () => {
-  function startAnimating(ctx, analyzer) {
+  function startAnimating(ctx, maxAmp, analyzer) {
     const canvasHeight = ctx.canvas.height;
     const canvasWidth = ctx.canvas.width;
     const timeData = getTimeDomainData(analyzer);
@@ -11,7 +11,7 @@ export default () => {
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     ctx.beginPath();
     timeData.forEach((point) => {
-      point /= -50; // this needs to be the amp max
+      point /= -1 * maxAmp; // this needs to be the amp max
       if (point < 0) {
         y = canvasHeight/2 - (canvasHeight/2 * point * -1);
       } else {
@@ -23,7 +23,7 @@ export default () => {
     ctx.stroke();
 
     window.requestAnimationFrame(() => {
-      startAnimating(ctx, analyzer);
+      startAnimating(ctx, maxAmp, analyzer);
     });
   }
 

@@ -9,10 +9,8 @@
         default-freq="220"
         freq-range="[110, 440]"
         default-amp="1"
-        amp-range="[0, 1]">
+        amp-range="[0.01, 1]">
       </sound-generator>
-
-      <pre>-----</pre>
 
       <sound-generator 
         wave="synthesizer.modulatorWave" 
@@ -22,9 +20,7 @@
         amp-range="[0.1, 50]">
       </sound-generator>
 
-      <div>
-        <pre>{{synthesizer.outputWave}}</pre>
-      </div>
+      <graph max-amp="1" analyzer="synthesizer.outputAnalyzer"></graph>
    </div>
   </body>
 </html>
