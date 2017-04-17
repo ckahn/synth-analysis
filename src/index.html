@@ -1,6 +1,6 @@
 <html>
   <head>
-    <script src="./bundle.js"></script>
+    <script src="../build/bundle.js"></script>
   </head>
   <body ng-app="synthAnalysis">
     <div ng-controller="Controller">
@@ -12,12 +12,14 @@
         amp-range="[0, 1]">
       </sound-generator>
 
+      <pre>-----</pre>
+
       <sound-generator 
         wave="synthesizer.modulatorWave" 
-        default-freq="3"
-        freq-range="[0, 440]"
-        default-amp="10"
-        amp-range="[0, 50]">
+        default-freq="2"
+        freq-range="[1, 440]"
+        default-amp="24"
+        amp-range="[0.1, 50]">
       </sound-generator>
 
       <div>

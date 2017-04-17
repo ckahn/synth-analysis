@@ -1,9 +1,14 @@
 import template from './template.html';
 
-export default () => ({
+export default ['visualizer', (visualizer) => ({
   restrict: 'E',
   scope: {
-    wave: '='
+    analyzer: '='
   },
-  template
-})
+  template,
+  link: (scope, el, attrs) => {
+    console.log(scope.analyzer);
+    const ctx = el.find('canvas')[0].getContext('2d');
+    visualizer.startAnimating(ctx, scope.analyzer);
+  }
+})]
